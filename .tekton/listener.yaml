@@ -20,14 +20,18 @@ metadata:
   name: echo-pipeline-template
 spec:
   params:
-    - name: name
-      description: Name property
-    - name: country
-      description: Country property
-    - name: test
-      description: Test property
-    - name: custom
-      description: Custom property
+    - name: envTextProp1
+      description: Env1 property
+    - name: envTextareaProp1
+      description: Env2 property
+    - name: envSecureProp1
+      description: Env3 property
+    - name: envTextProp2
+      description: Env4 property
+    - name: envTextareaProp2
+      description: Env5 property
+    - name: envSecureProp2
+      description: Env6 property
       default: --none--
   resourcetemplates:
     - apiVersion: tekton.dev/v1alpha1
@@ -41,11 +45,15 @@ spec:
         pipelineRef:
           name: echo-props-pipeline
         params:
-          - name: name
-            value: $(params.name)
-          - name: country
-            value: $(params.country)
-          - name: test
-            value: $(params.test)
-          - name: custom
-            value: $(params.custom)
+          - name: envTextProp1
+            value: $(params.envTextProp1)
+          - name: envTextareaProp1
+            value: $(params.envTextareaProp1)
+          - name: envSecureProp1
+            value: $(params.envSecureProp1)
+          - name: envTextProp2
+            value: $(params.envTextProp2)
+          - name: envTextareaProp2
+            value: $(params.envTextareaProp2)
+          - name: envSecureProp2
+            value: $(params.envSecureProp2)
