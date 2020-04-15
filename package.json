@@ -1,0 +1,6 @@
+{
+  "name": "tekton-samples",
+  "version": "0.0.1",
+  "description": "Simple tekton pipeline samples",
+  "author": "Brian Gleeson"
+}

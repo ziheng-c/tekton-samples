@@ -1,0 +1,31 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: echo-props-pipeline
+spec:
+  params:
+    - name: name
+      description: simple name property
+      default: NAME
+    - name: country
+      description: simple country property
+      default: COUNTRY
+    - name: test
+      description: Simple test property
+      default: TEST
+    - name: custom
+      description: Simple custom property
+      default: -none-  
+  tasks:
+    - name: echo-task
+      taskRef:
+        name: echo-props
+      params:
+        - name: name
+          value: $(params.name)
+        - name: country
+          value: $(params.country)
+        - name: test
+          value: $(params.test)  
+        - name: custom
+          value: $(params.custom) 

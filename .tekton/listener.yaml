@@ -1,0 +1,51 @@
+apiVersion: tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: echo-listener
+spec:
+  triggers:
+    - binding:
+        name: echo-pipeline-binding
+      template:
+        name: echo-pipeline-template
+---
+apiVersion: tekton.dev/v1alpha1
+kind: TriggerBinding
+metadata:
+  name: echo-pipeline-binding
+---
+apiVersion: tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: echo-pipeline-template
+spec:
+  params:
+    - name: name
+      description: Name property
+    - name: country
+      description: Country property
+    - name: test
+      description: Test property
+    - name: custom
+      description: Custom property
+      default: --none--
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1alpha1
+      kind: PipelineRun
+      metadata:
+        generateName: echo-pipeline-run-
+        labels:
+          triggertemplated: "true"
+          generatedBy: "echo-example"
+      spec:
+        pipelineRef:
+          name: echo-props-pipeline
+        params:
+          - name: name
+            value: $(params.name)
+          - name: country
+            value: $(params.country)
+          - name: test
+            value: $(params.test)
+          - name: custom
+            value: $(params.custom)
