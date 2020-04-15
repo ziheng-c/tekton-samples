@@ -4,28 +4,38 @@ metadata:
   name: echo-props-pipeline
 spec:
   params:
-    - name: name
-      description: simple name property
-      default: NAME
-    - name: country
-      description: simple country property
-      default: COUNTRY
-    - name: test
-      description: Simple test property
-      default: TEST
-    - name: custom
-      description: Simple custom property
-      default: -none-  
+    - name: envTextProp1
+      description: Env1 property
+      default: envTextProp1
+    - name: envTextareaProp1
+      description: Env2 property
+      default: envTextareaProp1
+    - name: envSecureProp1
+      description: Env3 property
+      default: envSecureProp1
+    - name: envTextProp2
+      description: Env4 property
+      default: envTextProp2
+    - name: envTextareaProp2
+      description: Env5 property
+      default: envTextareaProp2
+    - name: envSecureProp2
+      description: Env6 property
+      default: envSecureProp2
   tasks:
     - name: echo-task
       taskRef:
         name: echo-props
       params:
-        - name: name
-          value: $(params.name)
-        - name: country
-          value: $(params.country)
-        - name: test
-          value: $(params.test)  
-        - name: custom
-          value: $(params.custom) 
+        - name: envTextProp1
+          value: $(params.envTextProp1)
+        - name: envTextareaProp1
+          value: $(params.envTextareaProp1)
+        - name: envSecureProp1
+          value: $(params.envSecureProp1)
+        - name: envTextProp2
+          value: $(params.envTextProp2)
+        - name: envTextareaProp2
+          value: $(params.envTextareaProp2)
+        - name: envSecureProp2
+          value: $(params.envSecureProp2)
