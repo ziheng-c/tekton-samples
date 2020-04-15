@@ -40,7 +40,7 @@ spec:
           echo "env1 prop = $envTextProp1";
           echo "env2 prop = $envTextareaProp1";
           echo "env3 prop = $envSecureProp1";
-          echo "env1 prop = $envTextProp1";
-          echo "env2 prop = $envTextareaProp1";
-          echo "env3 prop = $envSecureProp1";
+          echo "env4 prop = $envTextProp2";
+          echo "env5 prop = $envTextareaProp2";
+          echo "env6 prop = $envSecureProp2";
           echo "=========================="
