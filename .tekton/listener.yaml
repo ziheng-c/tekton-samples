@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1alpha1
 kind: EventListener
 metadata:
   name: echo-listener
@@ -9,12 +9,12 @@ spec:
       template:
         name: echo-pipeline-template
 ---
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1alpha1
 kind: TriggerBinding
 metadata:
   name: echo-pipeline-binding
 ---
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
   name: echo-pipeline-template
