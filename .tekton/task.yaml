@@ -1,38 +1,37 @@
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: echo-props
 spec:
-  inputs:
-    params:
-      - name: envTextProp1
-        description: Simple text property for Env1
-      - name: envTextareaProp1
-        description: Simple textarea property for Env2
-      - name: envSecureProp1
-        description: Simple secure property for Env3
-      - name: envTextProp2
-        description: Simple text property for Env4
-      - name: envTextareaProp2
-        description: Simple textarea property for Env5
-      - name: envSecureProp2
-        description: Simple secure property for Env6
+  params:
+    - name: envTextProp1
+      description: Simple text property for Env1
+    - name: envTextareaProp1
+      description: Simple textarea property for Env2
+    - name: envSecureProp1
+      description: Simple secure property for Env3
+    - name: envTextProp2
+      description: Simple text property for Env4
+    - name: envTextareaProp2
+      description: Simple textarea property for Env5
+    - name: envSecureProp2
+      description: Simple secure property for Env6
   steps:
     - name: show-props
       image: ubuntu
       env:
         - name: envTextProp1
-          value: $(inputs.params.envTextProp1)
+          value: $(params.envTextProp1)
         - name: envTextareaProp1
-          value: $(inputs.params.envTextareaProp1)
+          value: $(params.envTextareaProp1)
         - name: envSecureProp1
-          value: $(inputs.params.envSecureProp1)
+          value: $(params.envSecureProp1)
         - name: envTextProp2
-          value: $(inputs.params.envTextProp2)
+          value: $(params.envTextProp2)
         - name: envTextareaProp2
-          value: $(inputs.params.envTextareaProp2)
+          value: $(params.envTextareaProp2)
         - name: envSecureProp2
-          value: $(inputs.params.envSecureProp2)
+          value: $(params.envSecureProp2)
       command: ["/bin/bash", "-c"]
       args:
         - echo "Tekton Properties Test Run";
