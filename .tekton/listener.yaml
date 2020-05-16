@@ -9,7 +9,7 @@ spec:
       template:
         name: echo-pipeline-template
 ---
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
 metadata:
   name: echo-pipeline-binding
