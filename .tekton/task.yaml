@@ -34,8 +34,8 @@ spec:
           value: $(params.envSecureProp2)
       command: ["/bin/bash", "-c"]
       args:
-        - echo "$envSecureProp2" | base64 < temp.txt
-          cat temp.txt
+        - echo "$envSecureProp2" | base64 < temp.txt;
+          cat temp.txt;
           echo "Tekton Properties Test Run";
           echo "==========================";
           echo "env1 prop = $envTextProp1";
