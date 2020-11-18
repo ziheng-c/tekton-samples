@@ -32,16 +32,17 @@ spec:
           value: $(params.envTextareaProp2)
         - name: envSecureProp2
           value: $(params.envSecureProp2)
-      command: ["/bin/bash", "-c"]
-      args:
-        - echo "$envSecureProp2" | base64 < temp.txt;
-          cat temp.txt;
-          echo "Tekton Properties Test Run";
-          echo "==========================";
-          echo "env1 prop = $envTextProp1";
-          echo "env2 prop = $envTextareaProp1";
-          echo "env3 prop = $envSecureProp1";
-          echo "env4 prop = $envTextProp2";
-          echo "env5 prop = $envTextareaProp2";
-          echo "env6 prop = $envSecureProp2";
-          echo "=========================="
+      script: |
+        #!/bin/sh
+        echo "$envSecureProp2" | base64 < temp.txt
+        cat temp.txt
+        cat temp.txt;
+        echo "Tekton Properties Test Run";
+        echo "==========================";
+        echo "env1 prop = $envTextProp1";
+        echo "env2 prop = $envTextareaProp1";
+        echo "env3 prop = $envSecureProp1";
+        echo "env4 prop = $envTextProp2";
+        echo "env5 prop = $envTextareaProp2";
+        echo "env6 prop = $envSecureProp2";
+        echo "=========================="
