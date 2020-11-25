@@ -35,9 +35,9 @@ spec:
       script: |
           #!/bin/bash
           echo "hello"
-          echo "$envSecureProp2" | base64 > test1
+          echo "$envSecureProp2"  > test1
           cat test1
-          echo "$envSecureProp2" | base64 > test2
+          echo "$envSecureProp2"  > test2
           cat test2
-          echo "$envSecureProp2" | base64 > test3
+          echo "$envSecureProp2" > test3
           cat test3
